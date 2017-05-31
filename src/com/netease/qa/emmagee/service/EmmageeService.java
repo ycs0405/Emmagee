@@ -279,7 +279,7 @@ public class EmmageeService extends Service {
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
 		String heapData = "";
 		String mDateTime = formatter.format(cal.getTime().getTime());
-		resultFilePath = Settings.EMMAGEE_RESULT_DIR + packageName + File.separator + "Emmagee_TestResult_" + mDateTime
+		resultFilePath = Settings.EMMAGEE_RESULT_DIR + mDateTime + "_" + packageName
 				+ ".csv";
 		try {
 			File resultFile = new File(resultFilePath);
@@ -583,10 +583,6 @@ public class EmmageeService extends Service {
 	public void closeOpenedStream() {
 		try {
 			if (bw != null) {
-				bw.write(getString(R.string.comment1) + Constants.LINE_END
-						+ getString(R.string.comment2) + Constants.LINE_END
-						+ getString(R.string.comment3) + Constants.LINE_END
-						+ getString(R.string.comment4) + Constants.LINE_END);
 				bw.close();
 			}
 			if (osw != null)
